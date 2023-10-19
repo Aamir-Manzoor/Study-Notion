@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -123,11 +124,22 @@ module.exports = {
         800: "#171717",
         900: "#141414",
       },
+      "gradient-blue": {
+        100: "#1FA2FF",
+        200: "#12D8FA",
+        300: "#A6FFCB",
+      },
     },
     extend: {
       maxWidth: {
         maxContent: "1260px",
-        maxContentTab: "650px"
+        maxContentTab: "650px",
+      },
+      backgroundColor: {
+        "custom-gradient":
+          "radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)",
+        "custom-complex":
+          "rgb(252, 211, 77), radial-gradient(at 57% 65%, rgb(146, 64, 14) 0, transparent 76%), radial-gradient(at 23% 64%, rgb(163, 230, 53) 0, transparent 54%), radial-gradient(at 44% 1%, rgb(100, 116, 139) 0, transparent 12%), radial-gradient(at 51% 64%, rgb(226, 232, 240) 0, transparent 14%), radial-gradient(at 20% 10%, rgb(192, 38, 211) 0, transparent 94%), radial-gradient(at 40% 98%, rgb(16, 185, 129) 0, transparent 8%)",
       },
     },
   },
