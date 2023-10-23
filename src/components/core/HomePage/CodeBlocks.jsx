@@ -63,9 +63,9 @@ const CodeBlocks = ({
           </svg>
         </div>
         <div
-          className={`h-fit flex flex-row text-medium bg-richblack-5 bg-opacity-5  z-10 backdrop-blur-3xl ${codeColor} w-[100%] lg:w-[500px]`}
+          className={`h-fit flex flex-row text-base bg-richblack-5 bg-opacity-5  z-10 backdrop-blur-3xl ${codeColor} w-[100%] lg:w-[500px]`}
         >
-          <div className="text-center mt-6  flex flex-col w-[10%] text-richblack-400 font-inter font-bold ">
+          <div className="text-center mt-6  flex flex-col w-[10%] text-richblack-400 font-mono font-medium ">
             <p>1</p>
             <p>2</p>
             <p>3</p>

@@ -2,12 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import HighlightText from "../components/core/HomePage/HighlightText";
+import InstructorSection from "../components/core/HomePage/InstructorSection";
+import ExploreMore from '../components/core/HomePage/ExploreMore'
+import Footer from "../components/common/Footer"
+
 
 import CTAButton from "../components/core/HomePage/Button";
 import Banner from "../assets/Images/banner.mp4";
 import CodeBlocks from "../components/core/HomePage/CodeBlocks";
-import LearningLanguageSection from '../components/core/HomePage/TimelineSection'
-import TimelineSection from '../components/core/HomePage/LearningLanguageSection'
+import TimelineSection from "../components/core/HomePage/TimelineSection";
+import LearningLanguageSection from "../components/core/HomePage/LearningLanguageSection";
 
 const Home = () => {
   return (
@@ -23,7 +27,7 @@ const Home = () => {
           </div>
         </Link>
 
-        <div className="text-center text-4xl font-semibold mt-8">
+        <div className="text-center text-4xl font-medium mt-8">
           Empower Your Future with
           <HighlightText text={"Coding Skills"} />
         </div>
@@ -53,7 +57,7 @@ const Home = () => {
           <CodeBlocks
             position={"lg:flex-row"}
             heading={
-              <div className="text-4xl font-semibold">
+              <div className="text-4xl font-medium">
                 Unlock Your
                 <HighlightText text={"Coding Potential"} />
                 with our online courses
@@ -86,11 +90,11 @@ const Home = () => {
         </div>
 
         {/* Code Section 2*/}
-        <div>
+        <div className="">
           <CodeBlocks
             position={"lg:flex-row-reverse"}
             heading={
-              <div className="text-4xl font-semibold max-w-[40%]">
+              <div className="text-4xl font-medium max-w-[40%]">
                 Start
                 <HighlightText text={"Coding in Seconds"} />
               </div>
@@ -119,7 +123,11 @@ const Home = () => {
             codeColor={"text-yellow-25"}
             backgroundGradient={""}
           />
+
+
         </div>
+
+        <ExploreMore/>
       </div>
 
       {/* Section 2*/}
@@ -140,7 +148,7 @@ const Home = () => {
 
         <div className="mx-auto w-11/12 max-w-maxContent flex flex-col items-center justify-center gap-7  text-white">
           <div className="flex flex-row gap-24 mb-10 mt-10">
-            <div className="text-4xl font-semibold w-[45%] text-black">
+            <div className="text-4xl font-medium w-[45%] text-black">
               Get the Skills you need for a
               <HighlightText text={"Job that is in demand"} />
             </div>
@@ -157,17 +165,24 @@ const Home = () => {
               </CTAButton>
             </div>
           </div>
+
+          <TimelineSection />
+          <LearningLanguageSection />
         </div>
-        
-
-        <TimelineSection/>
-
-        <LearningLanguageSection/>
       </div>
 
       {/* Section 3*/}
 
+      <div className="w-11/12 mx-auto max-w-maxContent flex-col items-center justify-between gap-8  bg-richblack-900 text-white">
+        <InstructorSection />
+        <h2 className="text-center text-4xl font-medium mt-10">
+          Review from Other Learners
+        </h2>
+      </div>
+
       {/* Section 4*/}
+
+      <Footer/>
     </div>
   );
 };
