@@ -13,15 +13,16 @@ const CodeBlocks = ({
   ctabtn2,
   backgroundGradient,
   codeColor,
+  imgPos,
 }) => {
   return (
-    <div className={`flex ${position} my-20 justify-between gap-10`}>
+    <div
+      className={`flex flex-col ${position} my-20 justify-between gap-14 lg:gap-10`}
+    >
       {/* Section 1*/}
-      <div className="w-[50%] flex flex-col gap-8 mt-4">
+      <div className="w-[1000%] lg:w-[40%]  flex flex-col gap-8">
         {heading}
-        <div className="text-richblack-300 text-md font-medium">
-          {subheading}
-        </div>
+        <div className="text-richblack-300  font-bold">{subheading}</div>
 
         <div className="flex gap-7 mt-7">
           <CTAButton active={ctabtn1.active} linkto={ctabtn1.linkto}>
@@ -36,61 +37,63 @@ const CodeBlocks = ({
           </CTAButton>
         </div>
       </div>
-
+        
       {/* Code Section 2*/}
-      <div className="relative">
-        <div className="w-[25rem] h-[20rem] absolute  z-[10] opacity-20  top-[-4rem] left-[-20px] blur-md ">
-          <svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <radialGradient id="b" r="100%" cx="40%" cy="20%">
-                <stop offset="0%" stop-color="#0fcaeb" />
-                <stop offset="50%" stop-color="#A6FFCB" />
-                <stop offset="100%" stop-color="#a9ddbe" />
-              </radialGradient>
-              <clipPath id="a">
-                <path
-                  fill="currentColor"
-                  d="M784 708.5Q635 917 385 841T123.5 491.5Q112 218 380.5 129T791 270q142 230-7 438.5Z"
-                />
-              </clipPath>
-            </defs>
-            <g clip-path="url(#a)">
-              <path
-                fill="url(#b)"
-                d="M784 708.5Q635 917 385 841T123.5 491.5Q112 218 380.5 129T791 270q142 230-7 438.5Z"
-              />
-            </g>
-          </svg>
-        </div>
-        <div
-          className={`h-fit flex flex-row text-base bg-richblack-5 bg-opacity-5  z-10 backdrop-blur-3xl ${codeColor} w-[100%] lg:w-[500px]`}
-        >
-          <div className="text-center mt-6  flex flex-col w-[10%] text-richblack-400 font-mono font-medium ">
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
-            <p>4</p>
-            <p>5</p>
-            <p>6</p>
-            <p>7</p>
-            <p>8</p>
-            <p>9</p>
-            <p>10</p>
-            <p>11</p>
-          </div>
+      <div
+        className={`h-fit code-border flex flex-row text-[0.6rem] sm:text-sm leading-5 sm:leading-6 
+        relative w-[100%] lg:w-[29rem]
+       bg-opacity-5  z-10 backdrop-blur-3xl ${codeColor} w-[100%] lg:w-[500px]`}
+      >
+        {backgroundGradient}
 
-          <div w={`w-[90%] flex flex-col gap-2 font-bold font-mono pr-2 `}>
-            <TypeAnimation
-              sequence={[codeblock, 2000, ""]}
-              repeat={Infinity}
-              cursor={true}
-              style={{
-                whiteSpace: "pre-line",
-                display: "block",
-              }}
-              omitDeletionAnimation={true}
-            />
-          </div>
+        <div className="text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold ">
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+          <p>5</p>
+          <p>6</p>
+          <p>7</p>
+          <p>8</p>
+          <p>9</p>
+          <p>10</p>
+          <p>11</p>
+        </div>
+
+        <div w={`w-[90%] flex flex-col gap-2 font-bold font-mono pr-2 `}>
+          <TypeAnimation
+            sequence={[codeblock[0], 2000, ""]}
+            repeat={Infinity}
+            cursor={true}
+            style={{
+              whiteSpace: "pre-line",
+              display: "block",
+              color: `yellow`,
+            }}
+            omitDeletionAnimation={true}
+          />
+          <TypeAnimation
+            sequence={[codeblock[1], 1000, ""]}
+            repeat={Infinity}
+            cursor={true}
+            style={{
+              whiteSpace: "pre-line",
+              display: "block",
+              color: `white`,
+            }}
+            omitDeletionAnimation={true}
+          />
+          <TypeAnimation
+            sequence={[codeblock[2], 200, ""]}
+            repeat={Infinity}
+            cursor={true}
+            style={{
+              whiteSpace: "pre-line",
+              display: "block",
+              color: `#D43D63`,
+            }}
+            omitDeletionAnimation={true}
+          />
         </div>
       </div>
     </div>

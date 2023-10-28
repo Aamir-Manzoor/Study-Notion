@@ -1,0 +1,9 @@
+.vid1{
+    box-shadow: 20px 20px 0px 0px rgba(245, 245,  245, 1);
+    position: absolute;
+    z-index: 10;
+}
+
+.homepage_bg{
+    background: url("../assets/Images/bghome.svg");
+}
