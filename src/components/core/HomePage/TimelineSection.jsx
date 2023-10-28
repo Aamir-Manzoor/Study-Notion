@@ -31,46 +31,57 @@ const timeline = [
 const TimelineSection = () => {
   return (
     <div>
-      <div className="flex flex-row gap-15 items-center text-black">
-        <div className="w-[45%] flex flex-col gap-5">
+      <div className="flex flex-col lg:flex-row gap-20 mb-20 items-center">
+        <div className="lg:w-[45%] flex flex-col gap-14 lg:gap-3">
           {timeline.map((element, index) => {
             return (
-              <div className="flex flex-row gap-6" key={index}>
-                <div className="w-[6rem] h-[5rem] bg-white flex items-center">
-                  <img src={element.Logo} alt={""} />
+              <div className="flex flex-col lg:gap-3" key={index}>
+                <div className="flex gap-6" key={index}>
+                  <div className="w-[4rem] h-[4rem] bg-white rounded-full flex items-center justify-center shadow-[#00000012] shadow-[0_0_62px_0]">
+                    <img src={element.Logo} alt={""} />
+                  </div>
+                  <div>
+                    <h2 className="font-semibold text-lg">
+                      {" "}
+                      {element.heading}
+                    </h2>
+                    <p className="text-base">{element.Description}</p>
+                  </div>
                 </div>
-
-                <div>
-                  <h2 className="font-semibold text-lg"> {element.heading}</h2>
-                  <p className="text-base">{element.Description}</p>
-                </div>
+                <div
+                  className={`hidden ${
+                    timeline.length - 1 === index ? "hidden" : "lg:block"
+                  } h-14 border-dotted border-r border-richblack-100 bg-richblack-400/0 w-[1.6rem]`}
+                ></div>
               </div>
             );
           })}
         </div>
 
-        <div className="relative shadow-blue-200">
-          <img
-            src={timelineImage}
-            alt="timelineImage"
-            className="shadow-white object-cover h-fit"
-          />
-
-          <div className="absolute left-[50%] translate-x-[-50%] translate-y-[-50%] bg-caribbeangreen-700 flex flex-row uppercase text-white py-7 px-10">
-            <div className="flex flex-row gap-10 items-center border-r border-caribbeangreen-300 px-7">
-              <p className="text-3xl font-bold ">10</p>
-              <p className="text-caribbeangreen-300 text-sm ">
+        <div className="relative w-fit h-fit shadow-blue-200 shadow-[0px_0px_30px_0px]">
+          <div
+            className="absolute lg:left-[50%] lg:bottom-0 lg:translate-x-[-50%] lg:translate-y-[50%]
+           bg-caribbeangreen-700 flex lg:flex-row flex-col uppercase text-white gap-4 py-5 lg:gap-0 lg:py-10"
+          >
+            <div className="flex gap-5 items-center lg:border-r border-caribbeangreen-300 px-7 lg:px-14">
+              <p className="text-3xl font-bold w-[4.8rem]">10</p>
+              <p className="text-caribbeangreen-300 text-sm w-[4.8rem]">
                 Years of Experience
               </p>
             </div>
 
-            <div className="flex flex-row items-center gap-10 px-7">
-              <p className="text-3xl font-bold ">250</p>
-              <p className="text-caribbeangreen-300 text-sm ">
+            <div className="flex items-center gap-5 lg:px-14 px-7">
+              <p className="text-3xl font-bold w-[4.8rem]">250</p>
+              <p className="text-caribbeangreen-300 text-sm w-[4.8rem]">
                 Type of courses
               </p>
             </div>
           </div>
+          <img
+            src={timelineImage}
+            alt="timelineImage"
+            className="shadow-white shadow-[20px_20px_0px_0px] object-cover h-[25rem] lg:h-fit"
+          />
         </div>
       </div>
     </div>
