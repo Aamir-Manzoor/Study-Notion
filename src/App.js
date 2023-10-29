@@ -6,6 +6,8 @@ import Navbar from "./components/common/Navbar";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import OpenRoute from "./components/core/Auth/OpenRoute";
+import ForgotPassword from "./Pages/ForgotPassword";
+import UpdatePassword from "./Pages/UpdatePassword";
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +33,23 @@ function App() {
           element={
             <OpenRoute>
               <Login />
+            </OpenRoute>
+          }
+        />
+        <Route
+          path="forgot-password"
+          element={
+            <OpenRoute>
+              <ForgotPassword />
+            </OpenRoute>
+          }
+        />
+
+        <Route
+          path="update-password/:id"
+          element={
+            <OpenRoute>
+              <UpdatePassword />
             </OpenRoute>
           }
         />

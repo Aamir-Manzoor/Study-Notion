@@ -24,15 +24,15 @@ async function sendVerificationEmail(email, otp) {
       "Verification Email from Study Notion",
       emailTemplate(otp)
     );
-    console.log("Email sent Successfully", mailResponse.response);
+    console.log("Email sent Successfully", mailResponse);
   } catch (error) {
     console.log("error Occured while sending Mails", error);
     throw error;
   }
 }
 OTPSchema.pre("save", async function (next) {
-  console.log("New document saved to database");
-  if (this.view) {
+
+  if (this.isNew) {
     await sendVerificationEmail(this.email, this.otp);
   }
   next();
