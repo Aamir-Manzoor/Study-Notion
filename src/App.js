@@ -8,6 +8,7 @@ import Login from "./Pages/Login";
 import OpenRoute from "./components/core/Auth/OpenRoute";
 import ForgotPassword from "./Pages/ForgotPassword";
 import UpdatePassword from "./Pages/UpdatePassword";
+import VerifyEmail from "./Pages/VerifyEmail";
 
 function App() {
   const dispatch = useDispatch();
@@ -41,6 +42,14 @@ function App() {
           element={
             <OpenRoute>
               <ForgotPassword />
+            </OpenRoute>
+          }
+        />
+        <Route
+          path="verify-email"
+          element={
+            <OpenRoute>
+              <VerifyEmail />
             </OpenRoute>
           }
         />
