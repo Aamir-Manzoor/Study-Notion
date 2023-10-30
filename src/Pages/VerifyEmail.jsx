@@ -10,12 +10,11 @@ const VerifyEmail = () => {
   const navigate = useNavigate();
   const [otp, setOtp] = useState("");
 
-
   useEffect(() => {
-    if(!signupData){
+    if (!signupData) {
       navigate("/signup");
     }
-  },[navigate, signupData]);
+  }, [navigate, signupData]);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -42,19 +41,22 @@ const VerifyEmail = () => {
     );
   };
   return (
-    <div>
+    <div className="text-white">
       {loading ? (
         <div>Loading...</div>
       ) : (
         <div>
           <h1>Verify Email</h1>
           <p>A verification code has been sent to you. Enter the code below</p>
-          <form onSumit={handleOnSubmit}>
+          <form onSubmit={handleOnSubmit}>
             <OTPInput
               value={otp}
               onChange={setOtp}
-              numInput={6}
-              renderInput={(props) => <input {...props} />}
+              numInputs={6}
+              renderSeparator={<span>-</span>}
+              renderInput={(props) => (
+                <input {...props} className="bg-richblack-800" />
+              )}
             />
 
             <button type="submit">Verify Email</button>
@@ -66,10 +68,9 @@ const VerifyEmail = () => {
               </Link>
             </div>
 
-            <button
-            onClick={() => dispatch(sendOtp(signupData.email))}
-            
-            >Resend it</button>
+            <button onClick={() => dispatch(sendOtp(signupData.email))}>
+              Resend it
+            </button>
           </div>
         </div>
       )}

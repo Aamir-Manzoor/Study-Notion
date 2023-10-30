@@ -43,7 +43,7 @@ const Navbar = () => {
   console.log("subLinks", subLinks);
 
   const matchRoute = (route) => {
-    return matchPath({path: route}, location.pathname)
+    return matchPath({ path: route }, location.pathname);
   };
 
   // const handleCrossButton = () => {
@@ -131,9 +131,11 @@ const Navbar = () => {
                 ) : (
                   <Link to={link?.path}>
                     <p
-                    className={`${
-                      matchRoute(link?.path) ? "text-yellow-25" : "text-richblack-25"
-                    }`}
+                      className={`${
+                        matchRoute(link?.path)
+                          ? "text-yellow-25"
+                          : "text-richblack-25"
+                      }`}
                     >
                       {link.title}
                     </p>
@@ -173,7 +175,7 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-          {token === null && <ProfileDropDown />}
+          {token !== null && <ProfileDropDown />}
         </div>
       </div>
     </div>
