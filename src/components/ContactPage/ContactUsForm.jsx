@@ -127,13 +127,13 @@ const ContactUsForm = () => {
                 {CountryCode.map((ele, i) => {
                   return (
                     <option key={i} value={ele.code}>
-                      {ele.code} - {ele.couuntry}
+                      {ele.code} - {ele.country}
                     </option>
                   );
                 })}
               </select>
             </div>
-            <div className="flex w-[clac(100%-90px)] flex-col gap-2">
+            <div className="flex w-[calc(100%-90px)] flex-col gap-2">
               <input
                 type="number"
                 name="phoneNumber"
@@ -182,7 +182,7 @@ const ContactUsForm = () => {
         <button
           disabled={loading}
           type="submit"
-          className={`rouned-md bg-yellow-50 px-6 py-3 text-center text-[0.82rem] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)]
+          className={`rounded-md bg-yellow-50 px-6 py-3 text-center text-[0.82rem] font-bold text-black shadow-[2px_2px_0px_0px_rgba(255,255,255,0.18)]
           ${
             !loading &&
             "transition-all duration-200 hover:scale:-95 hover:shadow-none"
