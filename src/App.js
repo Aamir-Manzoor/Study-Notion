@@ -10,6 +10,8 @@ import ForgotPassword from "./Pages/ForgotPassword";
 import UpdatePassword from "./Pages/UpdatePassword";
 import VerifyEmail from "./Pages/VerifyEmail";
 import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import MyProfile from "";
 
 function App() {
   const dispatch = useDispatch();
@@ -72,6 +74,9 @@ function App() {
             </OpenRoute>
           }
         />
+        <Route path="/contact" element={<Contact />} />
+
+        <Route path="dashboard/my-profile" element={<MyProfile />} />
       </Routes>
     </div>
   );
