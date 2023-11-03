@@ -11,7 +11,7 @@ import UpdatePassword from "./Pages/UpdatePassword";
 import VerifyEmail from "./Pages/VerifyEmail";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
-import MyProfile from "";
+import MyProfile from "./components/core/Dashboard/MyProfile";
 
 function App() {
   const dispatch = useDispatch();
