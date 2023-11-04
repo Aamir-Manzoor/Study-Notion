@@ -15,7 +15,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const [ConfirmationModal, setConfirmationModal] = useState(null);
+  const [confirmationModal, setConfirmationModal] = useState(null);
 
   if (profileLoading || authLoading) {
     return (
@@ -63,7 +63,7 @@ const Sidebar = () => {
           </button>
         </div>
       </div>
-      {ConfirmationModal && <ConfirmationModal modalData={ConfirmationModal}/>}
+      {confirmationModal && <ConfirmationModal modalData={confirmationModal}/>}
     </>
   );
 };
