@@ -24,7 +24,7 @@ const Sidebar = () => {
   return (
     <>
       <div className="hidden lg:flex h-[calc(100vh-3.5rem)] min-w-[15rem] flex-col border-r-richblack-700 bg-richblack-800 py-10">
-        <div className="lex flex-col">
+        <div className="flex flex-col">
           {sidebarLinks.map((link, index) => {
             if (link.type && user?.accountType !== link.type) return null;
 
