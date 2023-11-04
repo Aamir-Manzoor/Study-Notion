@@ -25,27 +25,27 @@ const Sidebar = () => {
     <>
       <div className="hidden lg:flex h-[calc(100vh-3.5rem)] min-w-[15rem] flex-col border-r-richblack-700 bg-richblack-800 py-10">
         <div className="lex flex-col">
-            {sidebarLinks.map((link, index) => {
-              if (link.type && user?.accountType !== link.type) return null;
+          {sidebarLinks.map((link, index) => {
+            if (link.type && user?.accountType !== link.type) return null;
 
-              return (<SidebarLink key={link.id} link={link} iconName={link.icon}  />);
-            })}
+            return (
+              <SidebarLink key={link.id} link={link} iconName={link.icon} />
+            );
+          })}
         </div>
-        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700"/>
+        <div className="mx-auto mt-6 mb-6 h-[1px] w-10/12 bg-richblack-700" />
         <div className="flex flex-col">
-        <SidebarLink
-        link={{name: "settings", path:"/dashboard/settings"}}
-        iconName="VscSettingsGear"
-        />
+          <SidebarLink
+            link={{ name: "settings", path: "/dashboard/settings" }}
+            iconName="VscSettingsGear"
+          />
 
-        <button
-        className="px-8 py-2 ttext-sm font-medium text-richblack-300"
-        >
-        <div className="flex items-center gap-x-2">
-        <VscSignOut className="text-lg"/>
-        <span>logout</span>
-        </div>
-        </button>
+          <button className="px-8 py-2 ttext-sm font-medium text-richblack-300">
+            <div className="flex items-center gap-x-2">
+              <VscSignOut className="text-lg" />
+              <span>logout</span>
+            </div>
+          </button>
         </div>
       </div>
     </>
