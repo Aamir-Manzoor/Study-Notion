@@ -6,12 +6,15 @@ import Navbar from "./components/common/Navbar";
 import Signup from "./Pages/Signup";
 import Login from "./Pages/Login";
 import OpenRoute from "./components/core/Auth/OpenRoute";
+import PrivateRoute from "./components/core/Auth/PrivateRoute";
 import ForgotPassword from "./Pages/ForgotPassword";
 import UpdatePassword from "./Pages/UpdatePassword";
 import VerifyEmail from "./Pages/VerifyEmail";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import MyProfile from "./components/core/Dashboard/MyProfile";
+import Dashboard from "./Pages/Dashboard";
+import Error from "./Pages/Error"
 
 function App() {
   const dispatch = useDispatch();
@@ -76,7 +79,19 @@ function App() {
         />
         <Route path="/contact" element={<Contact />} />
 
+        <Route
+          element={
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
+          }
+        >
         <Route path="dashboard/my-profile" element={<MyProfile />} />
+
+        </Route>
+
+        
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );

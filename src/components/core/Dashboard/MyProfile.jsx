@@ -1,7 +1,6 @@
 import { RiEditBoxLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 import { formattedDate } from "../../../utils/dateFormatter";
 import IconBtn from "../../common/IconBtn";
 
@@ -18,7 +17,7 @@ export default function MyProfile() {
         <div className="flex flex-col items-start lg:flex-row lg:items-center gap-x-4">
           <img
             src={user?.image}
-            alt={`profile-${user?.firstName}`}
+            alt={''}
             className="aspect-square w-[78px] rounded-full object-cover"
           />
           <div className="space-y-1">
