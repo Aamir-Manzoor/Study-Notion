@@ -13,6 +13,7 @@ import VerifyEmail from "./Pages/VerifyEmail";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import MyProfile from "./components/core/Dashboard/MyProfile";
+import Settings from "./components/core/Dashboard/Settings";
 import Dashboard from "./Pages/Dashboard";
 import Error from "./Pages/Error"
 
@@ -88,9 +89,9 @@ function App() {
         >
         <Route path="dashboard/my-profile" element={<MyProfile />} />
 
-        </Route>
+        <Route path="dashboard/settings" element={<Settings />} />
 
-        
+        </Route>
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
