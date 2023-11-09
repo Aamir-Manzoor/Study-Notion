@@ -16,6 +16,7 @@ import MyProfile from "./components/core/Dashboard/MyProfile";
 import Settings from "./components/core/Dashboard/Settings";
 import Cart from "./components/core/Dashboard/Cart";
 import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
+import MyCourses from "./components/core/Dashboard/MyCourses"
 import Dashboard from "./Pages/Dashboard";
 import Error from "./Pages/Error";
 
@@ -103,6 +104,18 @@ function App() {
                 path="dashboard/enrolled-courses"
                 element={<EnrolledCourses />}
               />
+            </>
+          )}
+
+          {user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
+            <>
+              <Route path="dashboard/my-courses" element={<MyCourses />} />
+              {/*
+              <Route path="dashboard/instructor" element={<Instructor />} />
+              <Route path="dashboard/add-course" element={<AddCourse />} />
+           
+              <Route path="dashboard/edit-course/:courseId" element={<EditCourse />} />
+            */}
             </>
           )}
         </Route>
