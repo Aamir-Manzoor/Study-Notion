@@ -14,10 +14,12 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Settings from "./components/core/Dashboard/Settings";
-import Cart from './components/core/Dashboard/Cart'
-import EnrolledCourses from './components/core/Dashboard/EnrolledCourses'
+import Cart from "./components/core/Dashboard/Cart";
+import EnrolledCourses from "./components/core/Dashboard/EnrolledCourses";
 import Dashboard from "./Pages/Dashboard";
-import Error from "./Pages/Error"
+import Error from "./Pages/Error";
+
+import { ACCOUNT_TYPE } from "./utils/constants";
 
 function App() {
   const dispatch = useDispatch();
@@ -89,14 +91,20 @@ function App() {
             </PrivateRoute>
           }
         >
-        <Route path="dashboard/my-profile" element={<MyProfile />} />
+          <Route path="dashboard/my-profile" element={<MyProfile />} />
 
-        <Route path="dashboard/settings" element={<Settings />} />
+          <Route path="dashboard/settings" element={<Settings />} />
 
-        <Route path="dashboard/cart" element={<Cart />} />
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route path="dashboard/cart" element={<Cart />} />
 
-        <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
-
+              <Route
+                path="dashboard/enrolled-courses"
+                element={<EnrolledCourses />}
+              />
+            </>
+          )}
         </Route>
         <Route path="*" element={<Error />} />
       </Routes>
