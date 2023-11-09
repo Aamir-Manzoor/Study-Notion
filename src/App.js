@@ -14,6 +14,7 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import MyProfile from "./components/core/Dashboard/MyProfile";
 import Settings from "./components/core/Dashboard/Settings";
+import Cart from './components/core/Dashboard/Cart'
 import EnrolledCourses from './components/core/Dashboard/EnrolledCourses'
 import Dashboard from "./Pages/Dashboard";
 import Error from "./Pages/Error"
@@ -91,6 +92,8 @@ function App() {
         <Route path="dashboard/my-profile" element={<MyProfile />} />
 
         <Route path="dashboard/settings" element={<Settings />} />
+
+        <Route path="dashboard/cart" element={<Cart />} />
 
         <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
 
