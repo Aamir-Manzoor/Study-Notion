@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
 import { Link, useLocation, matchPath } from "react-router-dom";
@@ -51,18 +51,27 @@ const Navbar = () => {
   // };
   return (
     <div
-      className={`
-    flex h-14 items-center justify-center border-b-[0.1rem] border-b-richblack-700
-    $ {location.pathname !== "/" ? "bg-richblack-800" : ""}
-    $ {location.pathname === "/" ? "fixed w-screen z-[1000] bg-richblack-900" : ""}
-    $ {location.pathname !== "/about" ? "fixed w-screen z-[1000] bg-richblack-900" : ""}
-    $ {
-      location.pathname ==="/contact" || matchRoute("/catalog:catalogName)
-                                      || matchRoute("/courses/:courseId") ?
-      "fixed w-screen z-[1000] bg-richblack-800" : "" }
-      transition-all duration-200                               
-    }
-    `}
+      className={`flex h-14 items-center justify-center border-b-[1px]
+    border-b-richblack-700
+     ${location.pathname !== "/" ? "bg-richblack-800" : ""}
+     ${
+       location.pathname === "/"
+         ? "fixed w-screen z-[1000]  bg-richblack-900"
+         : ""
+     }
+      ${
+        location.pathname === "/about"
+          ? "fixed w-screen z-[1000]  bg-richblack-700"
+          : ""
+      }  
+      ${
+        location.pathname === "/contact" ||
+        matchRoute("/catalog/:catalogName") ||
+        matchRoute("/courses/:couseId")
+          ? "fixed w-screen z-[1000]  bg-richblack-800"
+          : ""
+      }
+       transition-all duration-200 `}
     >
       <div
         className={`flex fixed ${
@@ -103,7 +112,7 @@ const Navbar = () => {
                         ></div>
                         {loading ? (
                           <p className="text-center spinner">Loading...</p>
-                        ) : subLinks?.length ? (
+                        ) : subLinks.length ? (
                           <>
                             {subLinks
                               ?.filter(
@@ -123,7 +132,7 @@ const Navbar = () => {
                               ))}
                           </>
                         ) : (
-                          <p className="text-center">No Course found</p>
+                          <p className="text-center">No Course Found</p>
                         )}
                       </div>
                     </div>
