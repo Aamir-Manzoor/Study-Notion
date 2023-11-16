@@ -48,10 +48,11 @@ export default function Upload({
 
   useEffect(() => {
     register(name, { required: true });
-  }, [register]);
+  }, [name, register]);
 
   useEffect(() => {
     setValue(name, selectedFile);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedFile, setValue]);
 
   const handleBrowseClick = () => {
