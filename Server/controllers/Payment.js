@@ -2,7 +2,7 @@ const { instance } = require("../config/razorpay");
 const Course = require("../models/Course");
 const User = require("../models/User");
 const mailSender = require("../utils/mailSender");
-const { courseEnrollmentEmail } = require("../mail/templates/courseEnrollmentEmail");
+//const { courseEnrollmentEmail } = require("../mail/templates/courseEnrollmentEmail");
 const { default: mongoose } = require("mongoose");
 
 
@@ -40,6 +40,7 @@ exports.capturePayment = async (req, res) => {
     console.error(error);
     return res.status(500).json({
       success: false,
+      // eslint-disable-next-line no-undef
       message: message.error,
     });
   }
