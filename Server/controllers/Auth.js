@@ -8,7 +8,6 @@ const { passwordUpdated } = require("../mail/templates/passwordUpdate");
 const Profile = require("../models/Profile");
 require("dotenv").config();
 
-
 exports.sendotp = async (req, res) => {
   try {
     const { email } = req.body;
@@ -56,7 +55,6 @@ exports.sendotp = async (req, res) => {
     });
   }
 };
-
 
 exports.signup = async (req, res) => {
   try {
@@ -159,7 +157,7 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return res.status(400).json({
+      return res.status(403).json({
         success: false,
         message: "All fields are required",
       });
@@ -212,7 +210,6 @@ exports.login = async (req, res) => {
   }
 };
 
-
 // change password controller
 
 exports.changePassword = async (req, res) => {
@@ -250,9 +247,10 @@ exports.changePassword = async (req, res) => {
     try {
       const emailResponse = await mailSender(
         updatedUserDetails.email,
+        `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`,
         passwordUpdated(
           updatedUserDetails.email,
-          `Password updated successfully for ${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
+          `${updatedUserDetails.firstName} ${updatedUserDetails.lastName}`
         )
       );
 
@@ -263,19 +261,19 @@ exports.changePassword = async (req, res) => {
         success: false,
         message: "Error occurred while sending email",
         error: error.message,
-      })
+      });
     }
 
     return res.status(200).json({
       success: true,
-      message: "password updated successfully", 
-    })
+      message: "password updated successfully",
+    });
   } catch (error) {
     console.error("Error occurred while updating  password:", error);
     return res.status(500).json({
       success: false,
       message: "Error occurred while updating password",
       error: error.message,
-    })
+    });
   }
 };
