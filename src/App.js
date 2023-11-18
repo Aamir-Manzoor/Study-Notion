@@ -23,6 +23,8 @@ import AddCourse from "./components/core/Dashboard/AddCourse";
 import EditCourse from './components/core/Dashboard/EditCourse'
 // import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
 
+import Catalog from "./Pages/Catalog";
+
 import { ACCOUNT_TYPE } from "./utils/constants";
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="catalog/:catalogName" element={<Catalog/>} />
 
         <Route
           path="signup"
