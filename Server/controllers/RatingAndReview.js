@@ -1,15 +1,11 @@
 const RatingAndReview = require("../models/RatingAndReview");
 const Course = require("../models/Course");
 const mongoose = require("mongoose");
-// const { mongo, default: mongoose } = require("mongoose");
 
-//createRating => handler function
+
 exports.createRating = async (req, res) => {
   try {
-    //getting.. user-id
     const userId = req.user.id;
-
-    //fetching... data
     const { rating, review, courseId } = req.body;
 
     //check if user is enrolled
@@ -45,15 +41,12 @@ exports.createRating = async (req, res) => {
       course: courseId,
     });
 
-    //updating.. course
-    const updatedCourseDetails = await Course.findByIdAndUpdate(
-      { _id: courseId },
-      {
-        $push: { ratingAndReviews: ratingReview._id },
+    await Course.findByIdAndUpdate(courseId, {
+      $push: {
+        ratingAndReviews: ratingReview,
       },
-      { new: true }
-    );
-    console.log(updatedCourseDetails);
+    })
+    await courseDetails.save()
 
     //return final response...
     return res.status(200).json({
@@ -109,13 +102,14 @@ exports.getAverageRating = async (req, res) => {
     console.log(error);
     return res.status(500).json({
       success: false,
-      message: error.message,
+      message: "Failed to retrieve the rating for the course",
+      error: error.message,
     });
   }
 };
 
 //getAllRating&Reviews => handler function
-exports.getAllRating = async (req, res) => {
+exports.getAllRatingReview = async (req, res) => {
   try {
     const allReviews = await RatingAndReview.find({})
       .sort({ rating: "desc" })
