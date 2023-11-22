@@ -115,6 +115,7 @@ exports.createCourse = async (req, res) => {
       },
       { new: true }
     )
+    console.log("HEREEEEEEEE", categoryDetails2)
     // Return the new course and a success message
     res.status(200).json({
       success: true,
@@ -384,7 +385,7 @@ exports.deleteCourse = async (req, res) => {
     }
 
     // Unenroll students from the course
-    const studentsEnrolled = course.studentsEnrolled
+    const studentsEnrolled = course.studentsEnroled
     for (const studentId of studentsEnrolled) {
       await User.findByIdAndUpdate(studentId, {
         $pull: { courses: courseId },
