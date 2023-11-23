@@ -80,17 +80,13 @@ export default function CourseInformationForm() {
 
   //   handle next button click
   const onSubmit = async (data) => {
-    // console.log(data)
 
     if (editCourse) {
-      // const currentValues = getValues()
-      // console.log("changes after editing form values:", currentValues)
-      // console.log("now course:", course)
-      // console.log("Has Form Changed:", isFormUpdated())
+     
       if (isFormUpdated()) {
         const currentValues = getValues();
         const formData = new FormData();
-        // console.log(data)
+    
         formData.append("courseId", course._id);
         if (currentValues.courseTitle !== course.courseName) {
           formData.append("courseName", data.courseTitle);
@@ -122,7 +118,6 @@ export default function CourseInformationForm() {
         if (currentValues.courseImage !== course.thumbnail) {
           formData.append("thumbnailImage", data.courseImage);
         }
-        // console.log("Edit Form data: ", formData)
         setLoading(true);
         const result = await editCourseDetails(formData, token);
         setLoading(false);

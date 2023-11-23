@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineMenu, AiOutlineShoppingCart } from "react-icons/ai";
 import { BsChevronDown } from "react-icons/bs";
 import { useSelector } from "react-redux";
@@ -11,10 +11,6 @@ import { categories } from "../../services/apis";
 import { ACCOUNT_TYPE } from "../../utils/constants";
 import ProfileDropdown from "../core/Auth/ProfileDropDown";
 
-import { ImCross } from "react-icons/im";
-
-import SmallScreenNavbar from "./SmallScreenNavbar";
-
 function Navbar() {
   const { token } = useSelector((state) => state.auth);
   const { user } = useSelector((state) => state.profile);
@@ -23,11 +19,6 @@ function Navbar() {
 
   const [subLinks, setSubLinks] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  // const windowWidth = useRef(window.innerWidth);
-  // console.log("--------window-width----", windowWidth);
-  // const [smallScreen, setSmallScreen] = useState(false);
-  const [isClose, setIsClose] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -41,48 +32,17 @@ function Navbar() {
       setLoading(false);
     })();
   }, []);
-
-  // console.log("sub links", subLinks)
-
   const matchRoute = (route) => {
     return matchPath({ path: route }, location.pathname);
   };
 
-  const handleCrossButton = () => {
-    isClose = isClose ? setIsClose(false) : setIsClose(true);
-    // smallScreen = smallScreen ? setSmallScreen(false) : setSmallScreen(true);
-  };
-
   return (
     <div
-      className={`flex h-14 items-center justify-center border-b-[1px]
-      border-b-richblack-700
-       ${location.pathname !== "/" ? "bg-richblack-800" : ""}
-       ${
-         location.pathname === "/"
-           ? "fixed w-screen z-[1000]  bg-richblack-900"
-           : ""
-       }
-        ${
-          location.pathname === "/about"
-            ? "fixed w-screen z-[1000]  bg-richblack-700"
-            : ""
-        }  
-        ${
-          location.pathname === "/contact" ||
-          matchRoute("/catalog/:catalogName") ||
-          matchRoute("/courses/:couseId")
-            ? "fixed w-screen z-[1000]  bg-richblack-800"
-            : ""
-        }
-         transition-all duration-200 `}
+      className={`flex h-14 items-center justify-center border-b-[1px] border-b-richblack-700 ${
+        location.pathname !== "/" ? "bg-richblack-800" : ""
+      } transition-all duration-200`}
     >
-      <div
-        className={`flex fixed ${
-          location.pathname !== "/" ? "bg-richblack-800" : "bg-richblack-900"
-        } z-40 lg:relative  w-[100%] h-[8%] border-b-[1px] lg:border-none border-b-richblack-500  lg:w-11/12 
-        max-w-maxContent items-center justify-between`}
-      >
+      <div className="flex w-11/12 max-w-maxContent items-center justify-between">
         {/* Logo */}
         <Link to="/">
           <img src={logo} alt="Logo" width={160} height={32} loading="lazy" />
@@ -103,18 +63,10 @@ function Navbar() {
                     >
                       <p>{link.title}</p>
                       <BsChevronDown />
-                      <div
-                        className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] 
-                      translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4
-                      text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible 
-                      group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]"
-                      >
-                        <div
-                          className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%]
-                          translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"
-                        ></div>
+                      <div className="invisible absolute left-[50%] top-[50%] z-[1000] flex w-[200px] translate-x-[-50%] translate-y-[3em] flex-col rounded-lg bg-richblack-5 p-4 text-richblack-900 opacity-0 transition-all duration-150 group-hover:visible group-hover:translate-y-[1.65em] group-hover:opacity-100 lg:w-[300px]">
+                        <div className="absolute left-[50%] top-0 -z-10 h-6 w-6 translate-x-[80%] translate-y-[-40%] rotate-45 select-none rounded bg-richblack-5"></div>
                         {loading ? (
-                          <p className="text-center spinner">Loading...</p>
+                          <p className="text-center">Loading...</p>
                         ) : subLinks.length ? (
                           <>
                             {subLinks
@@ -135,7 +87,7 @@ function Navbar() {
                               ))}
                           </>
                         ) : (
-                          <p className="text-center">No Course Found</p>
+                          <p className="text-center">No Courses Found</p>
                         )}
                       </div>
                     </div>
@@ -158,7 +110,6 @@ function Navbar() {
           </ul>
         </nav>
         {/* Login / Signup / Dashboard */}
-
         <div className="hidden items-center gap-x-4 md:flex">
           {user && user?.accountType !== ACCOUNT_TYPE.INSTRUCTOR && (
             <Link to="/dashboard/cart" className="relative">
@@ -186,28 +137,9 @@ function Navbar() {
           )}
           {token !== null && <ProfileDropdown />}
         </div>
-
-        {/* <button 
-        onClick={() => (setSmallScreen(true))}
-        className="mr-4 md:hidden">
-        <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
-      </button> */}
-        {isClose === false ? (
-          <button className="mr-4 md:hidden" onClick={handleCrossButton}>
-            <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
-          </button>
-        ) : (
-          <button className="mr-4 md:hidden" onClick={handleCrossButton}>
-            <ImCross fontSize={24} fill="#AFB2BF" />
-          </button>
-        )}
-        {isClose && (
-          <SmallScreenNavbar
-            isClose={isClose}
-            setIsClose={setIsClose}
-            handleCrossButton={handleCrossButton}
-          />
-        )}
+        <button className="mr-4 md:hidden">
+          <AiOutlineMenu fontSize={24} fill="#AFB2BF" />
+        </button>
       </div>
     </div>
   );
