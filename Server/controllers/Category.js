@@ -82,7 +82,7 @@ exports.categoryPageDetails = async (req, res) => {
       console.log("No courses found")
     } else {
        differentCategory = await Category.findOne(
-        categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length - 1)]
+        categoriesExceptSelected[getRandomInt(categoriesExceptSelected.length)]
           ._id
       )
         .populate({
@@ -90,6 +90,8 @@ exports.categoryPageDetails = async (req, res) => {
           match: { status: "Published" },
         })
         .exec();
+
+        console.log("ye hai" , differentCategory)
     }
 
     // Get top-selling courses across all categories

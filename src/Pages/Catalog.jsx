@@ -55,6 +55,8 @@ const Catalog = () => {
     return <Error />;
   }
 
+  console.log('ye hai ',typeof catalogPageData?.data?.selectedCategory?.courses)
+
   return (
     <>
       {/* Hero Section */}
