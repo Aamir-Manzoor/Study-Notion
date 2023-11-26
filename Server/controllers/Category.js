@@ -90,8 +90,6 @@ exports.categoryPageDetails = async (req, res) => {
           match: { status: "Published" },
         })
         .exec();
-
-        console.log("ye hai" , differentCategory)
     }
 
     // Get top-selling courses across all categories

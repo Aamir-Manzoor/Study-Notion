@@ -18,6 +18,7 @@ function Course_Card({ course, Height }) {
   if (!course) {
     return <></>;
   }
+  console.log("Ye wla aya",course)
   return (
     <>
       <Link to={`/courses/${course._id}`}>

@@ -12,7 +12,7 @@ import {FreeMode , Pagination} from "swiper/modules"
 import Course_Card from "./Course_Card"
 
 function CourseSlider({Courses}) {
-  console.log("Courses", Courses)
+  console.log("Courses 1", Courses)
   return (
     <>
       {Courses?.length ? (
