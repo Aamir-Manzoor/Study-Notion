@@ -1,25 +1,26 @@
-/* eslint-disable react/jsx-pascal-case */
-import React, { useEffect, useState } from "react";
-import Footer from "../components/common/Footer";
-import { useParams } from "react-router-dom";
-import { apiConnector } from "../services/apiconnector";
-import { categories } from "../services/apis";
-import { getCatalogPageData } from "../services/operations/pageAndComponentData";
-import Course_Card from "../components/core/Catalog/Course_Card";
-import CourseSlider from "../components/core/Catalog/CourseSlider";
-import { useSelector } from "react-redux";
-import Error from "./Error";
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux"
+import { useParams } from "react-router-dom"
 
-const Catalog = () => {
-  const { loading } = useSelector((state) => state.profile);
-  const { catalogName } = useParams();
-  const [active, setActive] = useState(1);
-  const [catalogPageData, setCatalogPageData] = useState(null);
-  const [categoryId, setCategoryId] = useState("");
+// import CourseCard from "../components/Catalog/CourseCard"
+// import CourseSlider from "../components/Catalog/CourseSlider"
+import Footer from "../components/common/Footer"
+import Course_Card from "../components/core/Catalog/Course_Card"
+import Course_Slider from "../components/core/Catalog/Course_Slider"
+import { apiConnector } from "../services/apiconnector"
+import { categories } from "../services/apis"
+import { getCatalogPageData } from "../services/operations/pageAndComponentData"
+import Error from "./Error"
 
-  //Fetch all categories
+function Catalog() {
+  const { loading } = useSelector((state) => state.profile)
+  const { catalogName } = useParams()
+  const [active, setActive] = useState(1)
+  const [catalogPageData, setCatalogPageData] = useState(null)
+  const [categoryId, setCategoryId] = useState("")
+  // Fetch All Categories
   useEffect(() => {
-    (async () => {
+    ;(async () => {
       try {
         const res = await apiConnector("GET", categories.CATEGORIES_API)
         const category_id = res?.data?.data?.filter(
@@ -49,13 +50,11 @@ const Catalog = () => {
       <div className="grid min-h-[calc(100vh-3.5rem)] place-items-center">
         <div className="spinner"></div>
       </div>
-    );
+    )
   }
   if (!loading && !catalogPageData.success) {
-    return <Error />;
+    return <Error />
   }
-
-  console.log('ye hai ',typeof catalogPageData?.data?.selectedCategory?.courses)
 
   return (
     <>
@@ -103,7 +102,7 @@ const Catalog = () => {
           </p>
         </div>
         <div>
-          <CourseSlider
+          <Course_Slider
             Courses={catalogPageData?.data?.selectedCategory?.courses}
           />
         </div>
@@ -114,7 +113,7 @@ const Catalog = () => {
           Top courses in {catalogPageData?.data?.differentCategory?.name}
         </div>
         <div className="py-8">
-          <CourseSlider
+          <Course_Slider
             Courses={catalogPageData?.data?.differentCategory?.courses}
           />
         </div>
@@ -136,7 +135,7 @@ const Catalog = () => {
 
       <Footer />
     </>
-  );
-};
+  )
+}
 
-export default Catalog;
+export default Catalog

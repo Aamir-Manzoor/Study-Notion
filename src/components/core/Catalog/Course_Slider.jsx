@@ -1,18 +1,18 @@
-/* eslint-disable react/jsx-pascal-case */
 import React from "react"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
 
 // Import Swiper styles
 import "swiper/css"
-import "swiper/css/bundle"
+import "swiper/css/free-mode"
+import "swiper/css/pagination"
 
-import {FreeMode , Pagination} from "swiper/modules"
+import { FreeMode, Pagination } from "swiper"
 
+// import { getAllCourses } from "../../services/operations/courseDetailsAPI"
 import Course_Card from "./Course_Card"
 
-function CourseSlider({Courses}) {
-  console.log("Courses 1", Courses)
+function Course_Slider({ Courses }) {
   return (
     <>
       {Courses?.length ? (
@@ -28,7 +28,7 @@ function CourseSlider({Courses}) {
           }}
           className="max-h-[30rem]"
         >
-          {Courses.map((course, i) => (
+          {Courses?.map((course, i) => (
             <SwiperSlide key={i}>
               <Course_Card course={course} Height={"h-[250px]"} />
             </SwiperSlide>
@@ -41,4 +41,4 @@ function CourseSlider({Courses}) {
   )
 }
 
-export default CourseSlider
+export default Course_Slider

@@ -22,7 +22,7 @@ import Error from "./Pages/Error";
 import AddCourse from "./components/core/Dashboard/AddCourse";
 import EditCourse from './components/core/Dashboard/EditCourse'
 // import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
-
+import CourseDetails from './Pages/CourseDetails'
 import Catalog from "./Pages/Catalog";
 
 import { ACCOUNT_TYPE } from "./utils/constants";
@@ -38,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="catalog/:catalogName" element={<Catalog/>} />
+        <Route path="courses/:courseId" element={<CourseDetails/>} />
 
         <Route
           path="signup"

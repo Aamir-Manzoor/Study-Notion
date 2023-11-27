@@ -3,7 +3,7 @@ const Course = require("../models/Course");
 const crypto = require("crypto");
 const User = require("../models/User");
 const mailSender = require("../utils/mailSender");
-const mongoose = require("mongoose");
+const {default: mongoose} = require("mongoose");
 const {
   courseEnrollmentEmail,
 } = require("../mail/templates/courseEnrollmentEmail");
@@ -38,10 +38,10 @@ exports.capturePayment = async (req, res) => {
       }
 
       const uid = new mongoose.Types.ObjectId(userId);
-      if (course.studentsEnrolled.includes(uid)) {
+      if (course.studentsEnroled.includes(uid)) {
         return res.status(200).json({
           success: false,
-          message: "Studnet is already enrolled",
+          message: "Student is already enrolled",
         });
       }
       total_amount += course.price;
