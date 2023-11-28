@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-pascal-case */
 import React from "react"
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react"
@@ -13,6 +14,7 @@ import { FreeMode, Pagination } from "swiper"
 import Course_Card from "./Course_Card"
 
 function Course_Slider({ Courses }) {
+  console.log("Courses in Slider",Courses)
   return (
     <>
       {Courses?.length ? (

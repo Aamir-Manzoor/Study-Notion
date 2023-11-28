@@ -52,6 +52,8 @@ function Catalog() {
       </div>
     )
   }
+
+  console.log("Get page Details", catalogPageData)
   if (!loading && !catalogPageData.success) {
     return <Error />
   }
