@@ -2,7 +2,7 @@ import { toast } from "react-hot-toast";
 import { apiConnector } from "../apiconnector";
 import { catalogData } from "../apis";
 
-export const getCatalogPageData = async (categoryId) => {
+export const getCategoryPageDetails = async (categoryId) => {
   const toastId = toast.loading("Loading...");
   let result = [];
   try {

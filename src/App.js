@@ -23,7 +23,7 @@ import AddCourse from "./components/core/Dashboard/AddCourse";
 import EditCourse from './components/core/Dashboard/EditCourse'
 // import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
 import CourseDetails from './Pages/CourseDetails'
-import Catalog from "./Pages/Catalog";
+import {Catalog} from "./Pages/Catalog";
 
 import { ACCOUNT_TYPE } from "./utils/constants";
 

@@ -46,7 +46,6 @@ exports.showAllCategories = async (req, res) => {
 exports.categoryPageDetails = async (req, res) => {
   try {
     const { categoryId } = req.body
-
     // Get courses for the specified category
     const selectedCategory = await Category.findById(categoryId)
       .populate({
@@ -55,9 +54,7 @@ exports.categoryPageDetails = async (req, res) => {
         populate: "ratingAndReviews",
       })
       .exec()
-
-    console.log("SELECTED COURSE", selectedCategory)
-    // Handle the case when the category is not found
+    // Hande the case when the category is not found
     if (!selectedCategory) {
       console.log("Category not found.")
       return res
@@ -96,9 +93,8 @@ exports.categoryPageDetails = async (req, res) => {
       .exec()
     const allCourses = allCategories.flatMap((category) => category.courses)
     const mostSellingCourses = allCourses
-      .sort((a, b) => b.sold - a.sold)
+       .sort((a, b) => b.sold - a.sold)
       .slice(0, 10)
-
     res.status(200).json({
       success: true,
       data: {
