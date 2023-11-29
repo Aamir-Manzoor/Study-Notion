@@ -22,8 +22,10 @@ import Error from "./Pages/Error";
 import AddCourse from "./components/core/Dashboard/AddCourse";
 import EditCourse from './components/core/Dashboard/EditCourse'
 // import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
+import VideoDetails from "./components/core/ViewCourse/VideoDetails.jsx"
 import CourseDetails from './Pages/CourseDetails'
 import Catalog from "./Pages/Catalog";
+import ViewCourse from "./Pages/ViewCourse.jsx"
 
 import { ACCOUNT_TYPE } from "./utils/constants";
 
@@ -121,9 +123,22 @@ function App() {
             </>
           )}
 
-          {/*
-               <Route path="dashboard/instructor" element={<Instructor />} />   
-        */}
+          <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>
+          }
+        >
+          {user?.accountType === ACCOUNT_TYPE.STUDENT && (
+            <>
+              <Route
+                path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                element={<VideoDetails />}
+              />
+            </>
+          )}
+        </Route>
         </Route>
         <Route path="*" element={<Error />} />
       </Routes>
