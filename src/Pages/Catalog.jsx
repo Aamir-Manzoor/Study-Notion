@@ -2,15 +2,12 @@
 import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-
-// import CourseCard from "../components/Catalog/CourseCard"
-// import CourseSlider from "../components/Catalog/CourseSlider"
-import Footer from "../components/Common/Footer"
+import Footer from "../components/common/Footer"
 import Course_Card from "../components/core/Catalog/Course_Card"
 import Course_Slider from "../components/core/Catalog/Course_Slider"
-import { apiConnector } from "../services/apiConnector"
+import { apiConnector } from "../services/apiconnector"
 import { categories } from "../services/apis"
-import { getCatalogPageData } from "../services/operations/pageAndComponntDatas"
+import { getCategoryPageDetails } from "../services/operations/pageAndComponentData"
 import Error from "./Error"
 
 function Catalog() {
@@ -37,7 +34,7 @@ function Catalog() {
     if (categoryId) {
       ;(async () => {
         try {
-          const res = await getCatalogPageData(categoryId)
+          const res = await getCategoryPageDetails(categoryId)
           setCatalogPageData(res)
         } catch (error) {
           console.log(error)
