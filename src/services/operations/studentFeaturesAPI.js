@@ -25,9 +25,11 @@ function loadScript(src) {
 
 
 export async function buyCourse(token, courses, userDetails, navigate, dispatch) {
+  
     const toastId = toast.loading("Loading...");
     try{
         //load the script
+        console.log("ye chl gya")
         const res = await loadScript("https://checkout.razorpay.com/v1/checkout.js");
 
         if(!res) {
@@ -45,10 +47,9 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
         if(!orderResponse.data.success) {
             throw new Error(orderResponse.data.message);
         }
-        console.log("PRINTING orderResponse", orderResponse);
         //options
         const options = {
-            key: process.env.RAZORPAY_KEY,
+            key: "rzp_test_ldyXwyjfqEo2Se",
             currency: orderResponse.data.data.currency,
             amount: `${orderResponse.data.data.amount}`,
             order_id:orderResponse.data.data.id,
