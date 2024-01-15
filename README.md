@@ -18,7 +18,7 @@ StudyNotion follows a client-server architecture with three main components: fro
 
 ### [Architecture Diagram](#system-architecture)
 
-![StudyNotion Architecture](link-to-your-diagram-image)
+![StudyNotion](https://ibb.co/QptxcQm)
 
 ## Front-end
 
