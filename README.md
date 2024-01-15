@@ -16,10 +16,6 @@ StudyNotion is a versatile ed-tech platform designed to provide an immersive lea
 
 StudyNotion follows a client-server architecture with three main components: front end, back end, and database. The front end, built using ReactJS, interacts with the back end (Node.js and Express.js) through RESTful API calls. MongoDB serves as the database, storing course content, user data, and other platform-related information.
 
-### [Architecture Diagram](#system-architecture)
-
-![StudyNotion](https://ibb.co/QptxcQm)
-
 ## Front-end
 
 The StudyNotion front end is developed with ReactJS, utilizing Figma for design. It includes pages for students, instructors, and potential future administrative functions. The front end incorporates ReactJS, CSS, Tailwind, Redux for state management, and VSCode as the development environment.
