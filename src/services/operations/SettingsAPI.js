@@ -67,6 +67,9 @@ export function updateProfile(token, formData) {
       // Dispatch a Redux action to update the user state with the new details
       dispatch(setUser({ ...updatedUserDetails, image: userImage }));
 
+
+      console.log(updatedUserDetails);
+
       // Show a success toast if the profile update was successful
       toast.success("Profile Updated Successfully");
     } catch (error) {
