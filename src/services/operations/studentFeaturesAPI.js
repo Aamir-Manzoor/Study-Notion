@@ -48,7 +48,7 @@ export async function buyCourse(token, courses, userDetails, navigate, dispatch)
         }
         //options
         const options = {
-            key: "rzp_test_ldyXwyjfqEo2Se",
+            key: "Removed due to Privacy",
             currency: orderResponse.data.data.currency,
             amount: `${orderResponse.data.data.amount}`,
             order_id:orderResponse.data.data.id,
